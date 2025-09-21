@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Najihah</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #fdf6f0; /* soft pastel background */
+      font-family: 'Playfair Display', serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    .card {
+      background: #fff;
+      padding: 40px;
+      border-radius: 20px;
+      max-width: 500px;
+      text-align: center;
+      line-height: 1.6;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      position: relative;
+      overflow: hidden;
+    }
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+      color: #8b5e3c; /* warm brown */
+    }
+    h2 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      color: #d36b82; /* soft pink */
+    }
+    p {
+      font-size: 1rem;
+      margin: 10px 0;
+      color: #555;
+    }
+    .date {
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin-top: 15px;
+      color: #8b5e3c;
+    }
+    .countdown {
+      margin: 20px 0;
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #d36b82;
+      font-family: 'Dancing Script', cursive;
+    }
+    .heart {
+      font-size: 2rem;
+      color: #e63946;
+      margin: 20px 0 10px;
+      cursor: pointer;
+      animation: pulse 1.5s infinite;
+      transition: transform 0.3s ease;
+    }
+    .heart:hover {
+      transform: scale(1.2) rotate(8deg);
+    }
+    .hidden-message {
+      display: none;
+      margin-top: 15px;
+      font-style: italic;
+      color: #444;
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.4rem;
+    }
+    .footer {
+      margin-top: 25px;
+      font-size: 0.95rem;
+      color: #777;
+      font-family: 'Dancing Script', cursive;
+    }
+
+    /* Floral decorations */
+    .flower {
+      position: absolute;
+      width: 80px;
+      opacity: 0.8;
+    }
+    .flower.top-left {
+      top: -10px;
+      left: -10px;
+      transform: rotate(-20deg);
+    }
+    .flower.top-right {
+      top: -10px;
+      right: -10px;
+      transform: rotate(20deg);
+    }
+    .flower.bottom-left {
+      bottom: -10px;
+      left: -10px;
+      transform: rotate(15deg);
+    }
+    .flower.bottom-right {
+      bottom: -10px;
+      right: -10px;
+      transform: rotate(-15deg);
+    }
+
+    /* Photo style */
+    .photo {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 15px 0;
+      border: 4px solid #f3cbd3;
+    }
+
+    /* Animations */
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <!-- Floral decorations -->
+    <img src="C:\Users\Nabil Nabihan\Desktop\filedani\flower.png" class="flower top-left" alt="flower">
+    <img src="C:\Users\Nabil Nabihan\Desktop\filedani\flower.png" class="flower top-right" alt="flower">
+    <img src="C:\Users\Nabil Nabihan\Desktop\filedani\flower.png" class="flower bottom-left" alt="flower">
+    <img src="C:\Users\Nabil Nabihan\Desktop\filedani\flower.png" class="flower bottom-right" alt="flower">
+
+    <h1>Happy Birthday 🎉</h1>
+    <h2>To My Love, Najihah</h2>
+
+    <!-- Photo -->
+    <img src="YOUR_PHOTO_LINK_HERE" alt="Najihah" class="photo">
+
+    <p>I can’t wait to celebrate this special night with you.</p>
+    <p class="date">📅 22 September, from 9:00 PM onwards</p>
+    <p>👗 Dress Code: Minimalist</p>
+    
+    <!-- Countdown Timer -->
+    <div class="countdown" id="countdown">Countdown: loading...</div>
+
+    <!-- Hidden Message -->
+    <div class="heart" onclick="document.querySelector('.hidden-message').style.display='block'">💌</div>
+    <div class="hidden-message">You are the most beautiful part of my life, Najihah. I love you forever ❤️</div>
+
+    <div class="footer">Can’t wait to see you ✨</div>
+  </div>
+
+  <script>
+    // Countdown to 22 September 2025, 9 PM
+    const countdownElement = document.getElementById('countdown');
+    const target = new Date("September 22, 2025 21:00:00");
+
+    function updateCountdown() {
+      const diff = target - new Date();
+      if (diff <= 0) {
+        countdownElement.innerHTML = "It's time! 💖";
+        return;
+      }
+      const days = Math.floor(diff / (1000*60*60*24));
+      const hours = Math.floor((diff % (1000*60*60*24))/(1000*60*60));
+      const minutes = Math.floor((diff % (1000*60*60))/(1000*60));
+      const seconds = Math.floor((diff % (1000*60))/1000);
+      
+      if (days > 0) {
+        countdownElement.innerHTML = `⏳ ${days}d ${hours}h ${minutes}m ${seconds}s`;
+      } else {
+        countdownElement.innerHTML = `⏳ ${hours}h ${minutes}m ${seconds}s`;
+      }
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+</body>
+</html>
